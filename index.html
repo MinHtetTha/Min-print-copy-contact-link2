@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Min Print & Copy - Contact Links</title>
+    <title>Min Print & Copy - Contact Cards</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         * {
@@ -14,120 +14,75 @@
         }
 
         body {
-            background-color: #e67e22;
-            display: flex;
-            justify-content: center;
-            align-items: flex-start;
-            min-height: 100vh;
-            padding: 40px 20px;
+            background-color: #f9f9f9; /* Image 2 နဲ့အညီ အဖြူရောင်သန်းတဲ့ နောက်ခံ */
+            padding-bottom: 70px; /* Navigation bar အတွက် နေရာ */
         }
 
+        /* --- Header Section (Image 2 design) --- */
+        .header {
+            background-color: #FF9800; /* Min Copy Branding Orange */
+            color: white;
+            padding: 20px 15px;
+            text-align: center;
+            font-size: 20px;
+            font-weight: bold;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+        }
+
+        /* --- Main Container --- */
         .container {
             width: 100%;
-            max-width: 500px;
+            max-width: 600px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+
+        /* --- Welcome Description --- */
+        .welcome-desc {
+            color: #333;
+            font-size: 14px;
             text-align: center;
-        }
-
-        .profile {
-            margin-bottom: 30px;
-        }
-
-        .profile-img {
-            width: 100px;
-            height: 100px;
-            margin: 0 auto 15px;
-            border-radius: 50%;
-            overflow: hidden;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            border: 2px solid rgba(255, 255, 255, 0.3);
-            background-color: transparent;
-        }
-
-        .profile-img img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-
-        h1 {
-            color: #000;
-            font-size: 24px;
-            font-weight: 800;
-            margin-bottom: 15px;
-            text-transform: uppercase;
-        }
-
-        /* --- Marquee Bar Styling --- */
-        .marquee-bar {
-            width: 100%;
-            overflow: hidden;
-            background: rgba(0, 0, 0, 0.15); /* ဖောက်ထွင်းမြင်ရတဲ့ အမည်းရောင်သန်းသန်း */
-            padding: 8px 0;
-            margin-bottom: 20px;
-            border-radius: 50px; /* ထိပ်နှစ်ဖက်ကို ဝိုင်းလိုက်တာ */
-            border: 1px solid rgba(255, 255, 255, 0.2);
-        }
-
-        .marquee-content {
-            display: inline-block;
-            white-space: nowrap;
-            padding-left: 100%;
-            animation: moveMarquee 12s linear infinite;
-            color: #fff;
-            font-weight: bold;
-            font-size: 14px;
-            text-shadow: 0 0 8px rgba(255, 255, 255, 0.6); /* စာသားကို လင်းစေတဲ့ Effect */
-        }
-
-        @keyframes moveMarquee {
-            0% { transform: translateX(0); }
-            100% { transform: translateX(-100%); }
-        }
-        /* --------------------------- */
-
-        .description {
-            color: #000;
-            font-size: 14px;
             line-height: 1.8;
-            margin-bottom: 25px;
-            padding: 0 10px;
-            font-weight: 600;
+            margin-bottom: 30px;
+            font-weight: 500;
         }
 
-        .links-group {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
+        /* --- Contact Card Grid (နှစ်ခုယှဉ်ပြဖို့) --- */
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr); /* ဘေးချင်းယှဉ် နှစ်ခု */
+            gap: 20px; /* Card ကြားအကွာအဝေး */
         }
 
-        .link-item {
+        /* --- Card Item (Image 2 style) --- */
+        .contact-card {
             background: #ffffff;
-            padding: 16px 20px;
             border-radius: 12px;
             text-decoration: none;
             color: #333;
             display: flex;
+            flex-direction: column; /* Vertical alignment */
             align-items: center;
             justify-content: center;
-            position: relative;
+            padding: 25px;
             transition: all 0.3s ease;
-            box-shadow: 0 3px 6px rgba(0,0,0,0.1);
-            width: 100%;
+            box-shadow: 0 3px 6px rgba(0,0,0,0.05); /* Soft shadow */
+            aspect-ratio: 1 / 1; /* စတုရန်းပုံစံ ဖြစ်စေရန် */
+            text-align: center;
         }
 
-        .link-item:hover {
+        .contact-card:hover {
             transform: translateY(-3px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.2);
+            box-shadow: 0 6px 15px rgba(0,0,0,0.1);
         }
 
-        .link-item i {
-            font-size: 20px;
-            position: absolute;
-            left: 20px;
+        /* Icon styling inside card */
+        .contact-card i {
+            font-size: 36px; /* ပိုကြီးတဲ့ Icon */
+            margin-bottom: 15px;
         }
 
+        /* Icon colors from original image 1 */
         .fa-telegram { color: #0088cc; }
         .fa-viber { color: #7360f2; }
         .fa-facebook-messenger { color: #006aff; }
@@ -135,83 +90,105 @@
         .fa-envelope { color: #ea4335; }
         .fa-phone-alt { color: #34a853; }
 
-        .link-text {
+        /* Card text styling */
+        .card-title {
             font-weight: 700;
-            font-size: 16px;
+            font-size: 14px; /* Image 2 နဲ့အညီ စာသားအရွယ်အစား */
+            margin-bottom: 5px;
         }
 
+        .card-sub {
+            font-size: 11px;
+            color: #777;
+            font-weight: 500;
+        }
+
+        /* --- Footer (Address & Copyright) --- */
         .footer-note {
-            margin-top: 35px;
+            margin-top: 40px;
+            text-align: center;
             font-size: 12px;
-            color: #000;
+            color: #888;
             font-weight: bold;
-            line-height: 1.6;
         }
 
         .address-text {
-            margin: 10px auto;
-            font-size: 11px;
-            opacity: 0.85;
-            font-weight: 500;
-            max-width: 80%;
-            line-height: 1.5;
+            margin-bottom: 10px;
+            opacity: 0.8;
         }
+
+        /* --- Mobile Bottom Nav Bar (Optional - for branding continuity) --- */
+        .bottom-nav {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 60px;
+            background-color: #fff;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            box-shadow: 0 -2px 5px rgba(0,0,0,0.05);
+            z-index: 100;
+        }
+        .nav-item { text-align: center; color: #777; font-size: 12px; }
+        .nav-item i { font-size: 20px; display: block; margin-bottom: 3px; }
+        .nav-item.active { color: #FF9800; }
+
     </style>
 </head>
 <body>
 
+    <div class="header">
+        Min Copy & Print
+    </div>
+
     <div class="container">
-        <div class="profile">
-            <div class="profile-img">
-                <img src="Logos.jpg" alt="Min Print & Copy Logo">
-            </div>
-            
-            <h1>MIN PRINT & COPY</h1>
+        <p class="welcome-desc">
+            ချစ်ခင်ရပါသော Customer များခင်ဗျာ၊<br>
+            လူကြီးမင်းတို့ ပေးပို့လိုသည့် ပုံများ၊ ဖိုင်များကို<br>
+            အောက်ဖော်ပြပါ Link (Card) များမှတစ်ဆင့်<br>
+            ပေးပို့နိုင်ပါတယ်ခင်ဗျာ။
+        </p>
 
-            <div class="marquee-bar">
-                <div class="marquee-content">
-                    ✨ Welcome to Min Print & Copy: Thank you so much for choosing us! ✨
-                </div>
-            </div>
+        <div class="contact-grid">
             
-            <p class="description">
-                ချစ်ခင်ရပါသော Customer များခင်ဗျာ၊<br>
-                လူကြီးမင်းတို့ ပေးပို့လိုသည့် ပုံများ၊ ဖိုင်များကို<br>
-                အောက်ဖော်ပြပါ Link များမှတစ်ဆင့်<br>
-                ပေးပို့နိုင်ပါတယ်ခင်ဗျာ။
-            </p>
-        </div>
-
-        <div class="links-group">
-            <a href="https://t.me/minhtetthar428" class="link-item" target="_blank">
+            <a href="https://t.me/minhtetthar428" class="contact-card" target="_blank">
                 <i class="fab fa-telegram"></i>
-                <span class="link-text">Telegram</span>
+                <span class="card-title">Telegram</span>
+                <span class="card-sub">@minhtetthar428</span>
             </a>
 
-            <a href="https://msng.link/o/?959964563388=vi" class="link-item" target="_blank">
+            <a href="https://msng.link/o/?959964563388=vi" class="contact-card" target="_blank">
                 <i class="fab fa-viber"></i>
-                <span class="link-text">Viber (Need VPN)</span>
+                <span class="card-title">Viber</span>
+                <span class="card-sub">(Need VPN)</span>
             </a>
 
-            <a href="https://m.me/min.htet.thar.886065" class="link-item" target="_blank">
+            <a href="https://m.me/min.htet.thar.886065" class="contact-card" target="_blank">
                 <i class="fab fa-facebook-messenger"></i>
-                <span class="link-text">Messenger (Need VPN)</span>
+                <span class="card-title">Messenger</span>
+                <span class="card-sub">(Need VPN)</span>
             </a>
 
-            <a href="https://www.instagram.com/minhtetthar428" class="link-item" target="_blank">
+            <a href="https://www.instagram.com/minhtetthar428" class="contact-card" target="_blank">
                 <i class="fab fa-instagram"></i>
-                <span class="link-text">Instagram (Need VPN)</span>
+                <span class="card-title">Instagram</span>
+                <span class="card-sub">(Need VPN)</span>
             </a>
 
-            <a href="mailto:paannpyoelaat428@gmail.com" class="link-item">
+            <a href="mailto:paannpyoelaat428@gmail.com" class="contact-card">
                 <i class="fas fa-envelope"></i>
-                <span class="link-text">paannpyoelaat428@gmail.com</span>
+                <span class="card-title">Email</span>
+                <span class="card-sub">Paanpyoelaat428</span>
             </a>
 
-            <a href="tel:+959964563388" class="link-item">
+            <a href="tel:+959964563388" class="contact-card">
                 <i class="fas fa-phone-alt"></i>
-                <span class="link-text">Contact Number</span>
+                <span class="card-title">Phone</span>
+                <span class="card-sub">Contact Number</span>
             </a>
+
         </div>
 
         <div class="footer-note">
@@ -219,6 +196,17 @@
                 မေခဆောင်(1B)၊ သမိုင်းကောလိပ်လမ်း၊ လှိုင်မြို့နယ်
             </div>
             © 2026 Min Print & Copy
+        </div>
+    </div>
+
+    <div class="bottom-nav">
+        <div class="nav-item">
+            <i class="fas fa-home"></i>
+            ပင်မ
+        </div>
+        <div class="nav-item active">
+            <i class="fas fa-user-edit"></i>
+            ဆက်သွယ်ရန်
         </div>
     </div>
 
